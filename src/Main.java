@@ -1,6 +1,6 @@
 public class Main {
 	public static String fileInputName = "PDDI.xlsx";
-	public static String fileRefName   = "D:/Workspace/Tests/Ref_10000.xlsx";
+	public static String fileRefName   = "BDDPDI.xlsx";
 	public static String fileOutName   = "ARGI.xlsx";
 	public static String sheetOutName  = "feuille";
 	public static String separator     = ",";
