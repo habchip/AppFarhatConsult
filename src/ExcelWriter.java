@@ -11,9 +11,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public class ExcelWriter {
-	private static String titleColumn1 = "CHAMPS 1";
-	private static String titleColumn2 = "CHAMPS 2";
-	private static String titleColumn3 = "CHAMPS 3";
+	private static String titleColumn1 = "CARACTERISTIQUES";
+	private static String titleColumn2 = "AVANTAGES";
+	private static String titleColumn3 = "PREUVES";
 	private static int columnMaxWidth = 10000;
 	
 	private FileOutputStream fileOut;
@@ -29,7 +29,7 @@ public class ExcelWriter {
 		// Set red font for title
 		XSSFCellStyle cellStyle = wb.createCellStyle();
 		XSSFFont cellFont = wb.createFont();
-		cellFont.setColor(HSSFColor.RED.index);
+		cellFont.setFontHeight(16);
 		cellStyle.setFont(cellFont);
 		
 		// Write titles in first line
@@ -60,6 +60,9 @@ public class ExcelWriter {
 		cellStyle.setBorderTop(XSSFCellStyle.BORDER_THIN);
 		cellStyle.setBorderLeft(XSSFCellStyle.BORDER_THIN);
 		cellStyle.setBorderRight(XSSFCellStyle.BORDER_THIN);
+		XSSFFont cellFont = wb.createFont();
+		cellFont.setFontHeight(12);
+		cellStyle.setFont(cellFont);
 		cellStyle.setWrapText(true);
 
 		for (int column = 0; column < excelLine.length; column++) {

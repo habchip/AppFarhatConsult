@@ -1,8 +1,8 @@
 public class Main {
-	public static String fileInputName = "D:/Workspace/Tests/test_entré.xlsx";
+	public static String fileInputName = "PDDI.xlsx";
 	public static String fileRefName   = "D:/Workspace/Tests/Ref_10000.xlsx";
-	public static String fileOutName   = "workbook.xlsx";
-	public static String sheetOutName  = "sheet";
+	public static String fileOutName   = "ARGI.xlsx";
+	public static String sheetOutName  = "feuille";
 	public static String separator     = ",";
 	public static int lineToParseIn    = 1;
 
