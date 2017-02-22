@@ -1,3 +1,4 @@
+package AppFarhatConsult.ExcelServices;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -11,10 +12,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public class ExcelWriter {
-	private static String titleColumn1 = "CHAMPS 1";
-	private static String titleColumn2 = "CHAMPS 2";
-	private static String titleColumn3 = "CHAMPS 3";
-	private static int columnMaxWidth = 10000;
+	private final static String titleColumn1 = "CHAMPS 1";
+	private final static String titleColumn2 = "CHAMPS 2";
+	private final static String titleColumn3 = "CHAMPS 3";
+	private final static int columnMaxWidth = 10000;
 	
 	private FileOutputStream fileOut;
 	private XSSFWorkbook wb;
