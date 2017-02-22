@@ -1,4 +1,10 @@
+import AppFarhatConsult.ihm.MainFrame;
+
 public class Main {
+	// Defines for ihm
+	public static int windowHeight = 500;
+	public static int windowWidth  = 700;
+	// Defines for the application
 	public static String fileInputName = "D:/Workspace/Tests/test_entré.xlsx";
 	public static String fileRefName   = "D:/Workspace/Tests/Ref_10000.xlsx";
 	public static String fileOutName   = "workbook.xlsx";
@@ -7,6 +13,8 @@ public class Main {
 	public static int lineToParseIn    = 1;
 
 	public static void main(String[] arg) {
+		MainFrame mainFrame = new MainFrame(windowWidth, windowHeight);
+		
 		try {
 			ExcelInReader fileParsor = new ExcelInReader(fileInputName);
 			ExcelWriter excelWriter = new ExcelWriter(fileOutName, sheetOutName);
