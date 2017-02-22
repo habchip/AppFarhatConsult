@@ -17,9 +17,9 @@ import AppFarhatConsult.ExcelServices.ExcelWriter;
 @SuppressWarnings("serial")
 public class AppButton extends JButton implements MouseListener {
 	// Defines for the application
-	public final static String fileRefName   = "D:/Workspace/Tests/Ref_10000.xlsx";
-	public final static String fileOutName   = "workbook.xlsx";
-	public final static String sheetOutName  = "sheet";
+	public final static String fileRefName   = "ressources/BDDPDI.xlsx";
+	public final static String fileOutName   = "ARGI.xlsx";
+	public final static String sheetOutName  = "feuille";
 	public final static String separator     = ",";
 	public final static int lineToParseIn    = 1;
 	
