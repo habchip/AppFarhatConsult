@@ -20,6 +20,7 @@ public class AppButton extends JButton implements MouseListener {
 	public final static String fileRefName   = "ressources/BDDPDI.xlsx";
 	public final static String fileOutName   = "ARGI.xlsx";
 	public final static String sheetOutName  = "feuille";
+
 	public final static String separator     = ",";
 	public final static int lineToParseIn    = 1;
 	

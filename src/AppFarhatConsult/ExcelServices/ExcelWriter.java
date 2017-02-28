@@ -15,7 +15,7 @@ public class ExcelWriter {
 	private static String titleColumn2 = "AVANTAGES";
 	private static String titleColumn3 = "PREUVES";
 	private static int columnMaxWidth = 10000;
-	
+
 	private FileOutputStream fileOut;
 	private XSSFWorkbook wb;
 	private XSSFSheet sheet;
