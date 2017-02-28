@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -46,10 +47,13 @@ public class ExcelInReader {
 
 		// Browse all cells in this line
 		while (cellIterator.hasNext()) {
-			cellString = cellIterator.next().getStringCellValue();
-			cellString = cellString.replaceAll("\"", "");
-			sb.append(cellString);
-			sb.append(separator);
+			Cell cell = cellIterator.next();
+			if (cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
+				cellString = cell.getStringCellValue();
+				cellString = cellString.replaceAll("\"", "");
+				sb.append(cellString);
+				sb.append(separator);				
+			}
 		}
 		sb.deleteCharAt(sb.length() - 1);
 

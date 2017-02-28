@@ -41,7 +41,7 @@ public class AppButton extends JButton implements MouseListener {
 	@SuppressWarnings("static-access")
 	public void mouseClicked(MouseEvent event) {
 		if (this.type == TYPE_IMPORTE) {
-			FileDialog fileDialog = new FileDialog(this.mainFrame, "chose a file", FileDialog.LOAD);
+			FileDialog fileDialog = new FileDialog(this.mainFrame, "Chose a file", FileDialog.LOAD);
 			fileDialog.setDirectory(".");
 			fileDialog.setFile("*.xlsx");
 			fileDialog.setVisible(true);
@@ -54,8 +54,7 @@ public class AppButton extends JButton implements MouseListener {
 				JOptionPane.showMessageDialog(this.mainFrame, "Attention vous devez choisir un fichier d'entré !");
 			} else {
 				try {
-					System.out.println("file in : " + this.fileName);
-					ExcelInReader fileParsor = new ExcelInReader(this.fileName);
+ 					ExcelInReader fileParsor = new ExcelInReader(this.fileName);
 					ExcelWriter excelWriter = new ExcelWriter(fileOutName, sheetOutName);
 					ExcelRefReader excelReader = new ExcelRefReader(fileRefName);
 					String[] keywords = fileParsor.Parse(lineToParseIn, separator);
@@ -63,14 +62,20 @@ public class AppButton extends JButton implements MouseListener {
 
 					// For each keyword found, write a line
 					for (String keyword : keywords) {
-						String[] excelLine = excelReader.read(keyword);
-						excelWriter.addLine(excelLine, lineNumber);
-						lineNumber++;
+						try {
+							String[] excelLine = excelReader.read(keyword.trim());
+							excelWriter.addLine(excelLine, lineNumber);
+							lineNumber++;
+						} catch (IllegalArgumentException e) {
+							System.out.println("Wrong keyword : " + keyword);
+						}
 					}
 
 					excelWriter.writeAndClose();
 					JOptionPane.showMessageDialog(this.mainFrame, "Fichier généré avec succès");
 				} catch (Exception e) {
+					System.out.println(e);
+					e.printStackTrace();
 					JOptionPane.showMessageDialog(this.mainFrame, "ERREUR " + e.getMessage());
 				}
 			}
