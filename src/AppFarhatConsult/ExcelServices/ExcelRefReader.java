@@ -43,12 +43,12 @@ public class ExcelRefReader {
 		Row row = null;
 		
 		// Browse excel file
-		while (rowIterator.hasNext() && keywordRead.compareTo(keywordExpected) != 0) {
+		while (rowIterator.hasNext() && keywordRead.toLowerCase().compareTo(keywordExpected.toLowerCase()) != 0) {
 			row = rowIterator.next();
-			keywordRead = row.getCell(0).getStringCellValue();
+			keywordRead = row.getCell(0).getStringCellValue().trim();
 		}
 		
-		if (keywordRead.compareTo(keywordExpected) != 0 || keywordRead == "")
+		if (keywordRead.toLowerCase().compareTo(keywordExpected.toLowerCase()) != 0 || keywordRead == "")
 			throw new IllegalArgumentException("Wrong keyword expected : " + keywordExpected);
 		
 		String [] result = {

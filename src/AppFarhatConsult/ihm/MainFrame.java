@@ -40,6 +40,7 @@ public class MainFrame extends JFrame {
 		this.setSize(widthFrame, heightFrame);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 		
 		// Buttons configurations
 		pan.setLayout(null);

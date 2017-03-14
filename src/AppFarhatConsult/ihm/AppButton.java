@@ -67,12 +67,16 @@ public class AppButton extends JButton implements MouseListener {
 							excelWriter.addLine(excelLine, lineNumber);
 							lineNumber++;
 						} catch (IllegalArgumentException e) {
-							System.out.println("Wrong keyword : " + keyword);
+							System.out.println(e);
 						}
 					}
 
-					excelWriter.writeAndClose();
-					JOptionPane.showMessageDialog(this.mainFrame, "Fichier généré avec succès");
+					if (lineNumber == 2) {
+						JOptionPane.showMessageDialog(this.mainFrame, "Aucun mot clef n'a été trouvé !");
+					} else {
+						excelWriter.writeAndClose();
+						JOptionPane.showMessageDialog(this.mainFrame, "Fichier généré avec succès");
+					}
 				} catch (Exception e) {
 					System.out.println(e);
 					e.printStackTrace();
